@@ -1,6 +1,6 @@
 <h1>Expense Tracker</h1>
 
-<h5>This is the backend part of the project. For the frontend part, visit <a href="https://github.com/romvol13/Expenses_application_front_end">Expenses Application Frontend</a>.</h5>
+<h4>This is the backend part of the project. For the frontend part, visit <a href="https://github.com/romvol13/Expenses_application_front_end">Expenses Application Frontend</a>.</h4>
 
 <h3>Overview</h3>
 
