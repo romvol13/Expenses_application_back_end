@@ -1,4 +1,5 @@
 Expense Tracker
+This is backend part of the project
 
 Overview
 Expense Tracker is a full-stack application designed to help users manage their finances by tracking expenses. The app includes a user-friendly frontend and backend, and a PostgreSQL database. 
