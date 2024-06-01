@@ -15,5 +15,5 @@
 </div>
 
 <div>
-    <img src="https://github.com/romvol13/Expenses_application_back_end/issues/1#issue-2328894019" alt="Expense Tracker Screenshot">
+    <img src="https://github.com/romvol13/Expenses_application_back_end/main/images/Screenshot.png" alt="Expense Tracker Screenshot">
 </div>
