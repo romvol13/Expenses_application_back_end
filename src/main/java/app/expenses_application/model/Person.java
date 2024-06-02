@@ -23,7 +23,6 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Person implements UserDetails {
- // comment
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
