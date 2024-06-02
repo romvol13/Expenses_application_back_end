@@ -22,6 +22,8 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 
 import java.time.LocalDate;
 import java.util.Collections;
@@ -53,6 +55,9 @@ class ExpensesApplicationTests {
 
 	@Mock
 	private JwtService jwtService;
+
+	@Mock
+	private AuthenticationManager authenticationManager;
 
 	@Test
 	void testIfExceptionThrownWhenNoExpenses() {
@@ -248,15 +253,21 @@ class ExpensesApplicationTests {
 	}
 
 	@Test
-	void testAuthenticate_Success() {
+	void testSuccessfulAuthentication() {
 		// Given
 		String email = "test@example.com";
 		String password = "password";
 		LoginRequest request = new LoginRequest(email, password);
-		Person person = new Person(1L, "email", "password", "Alex", Role.USER, true, null );
+		Person person = new Person(1L, email, password, "Alex", Role.USER, true, null);
 		String jwtToken = "jwtToken";
+
+		// Mocking the repository and service calls
 		Mockito.when(personRepository.findByEmail(email)).thenReturn(Optional.of(person));
 		Mockito.when(jwtService.generateToken(person)).thenReturn(jwtToken);
+
+		// Mocking the authentication manager call
+		Mockito.when(authenticationManager.authenticate(Mockito.any(UsernamePasswordAuthenticationToken.class)))
+				.thenAnswer(invocation -> null);
 
 		// When
 		LoginResponse response = authenticationService.authenticate(request);
