@@ -45,7 +45,7 @@ public class ExpenseController {
 	 */
 	@Operation(summary = "Add new expense")
 	@PostMapping("/add")
-	public ResponseEntity<?> addExpense(@RequestBody ExpenseRequest request) throws MandatoryFieldsMissingException, NoPersonFoundException {
+	public ResponseEntity<?> addExpense(@RequestBody final ExpenseRequest request) throws MandatoryFieldsMissingException, NoPersonFoundException {
 		dataMappingService.setPersonIdToExpense(request.getExpense(), request.getPersonId());
 		expenseService.add(request.getExpense());
 		return ResponseEntity.status(HttpStatus.OK).body("{\"message\": \"Expense added successfully.\"}");

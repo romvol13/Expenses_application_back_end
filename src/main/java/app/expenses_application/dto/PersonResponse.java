@@ -2,6 +2,7 @@ package app.expenses_application.dto;
 
 import app.expenses_application.model.Role;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Component;
@@ -15,6 +16,7 @@ import org.springframework.stereotype.Component;
 @Component
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class PersonResponse {
 
     private Long id;

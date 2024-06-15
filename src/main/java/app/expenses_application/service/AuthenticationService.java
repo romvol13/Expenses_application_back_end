@@ -26,7 +26,7 @@ public class AuthenticationService {
      * @param request the login request containing the email and password.
      * @return a LoginResponse containing the authentication token and the authenticated person.
      */
-    public LoginResponse authenticate(LoginRequest request) {
+    public LoginResponse authenticate(final LoginRequest request) {
         authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(request.getEmail(), request.getPassword()));
         Person person = personRepository.findByEmail(request.getEmail())
                 .orElseThrow(); // handle appropriately if person not found

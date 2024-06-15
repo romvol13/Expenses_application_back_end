@@ -1,6 +1,7 @@
 package app.expenses_application.model;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
@@ -22,8 +23,9 @@ import java.util.List;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class Person implements UserDetails {
- // comment
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;

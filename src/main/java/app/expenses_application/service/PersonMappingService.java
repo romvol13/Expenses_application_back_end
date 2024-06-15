@@ -21,12 +21,13 @@ public class PersonMappingService {
     public List<PersonResponse> mapToPersonResponse(final List<Person> personList) {
         List<PersonResponse> personResponseList = new ArrayList<>();
         for (Person person : personList) {
-            PersonResponse personResponse = new PersonResponse();
-            personResponse.setId(person.getId());
-            personResponse.setName(person.getName());
-            personResponse.setEmail(person.getEmail());
-            personResponse.setRole(person.getRole());
-            personResponse.setPassword(person.getPassword());
+            PersonResponse personResponse = PersonResponse.builder()
+                    .id(person.getId())
+                    .name(person.getName())
+                    .email(person.getEmail())
+                    .role(person.getRole())
+                    .password(person.getPassword())
+                    .build();
             personResponseList.add(personResponse);
         }
 
