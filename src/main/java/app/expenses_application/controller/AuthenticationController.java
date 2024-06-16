@@ -25,8 +25,8 @@ public class AuthenticationController {
      * @return a ResponseEntity containing the authentication response.
      */
     @PostMapping("/authenticate")
-    @CrossOrigin(origins = "http://localhost:4200")
-    //@CrossOrigin(origins = "http://myngcode.s3-website.eu-central-1.amazonaws.com")
+    //@CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = "http://myngcode.s3-website.eu-central-1.amazonaws.com")
     public ResponseEntity<LoginResponse> authenticate(@RequestBody final LoginRequest request) {
         return ResponseEntity.ok(authenticationService.authenticate(request));
     }
