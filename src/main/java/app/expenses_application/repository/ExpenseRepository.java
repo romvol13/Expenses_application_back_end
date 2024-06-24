@@ -42,4 +42,12 @@ public interface ExpenseRepository extends JpaRepository<Expense, Long> {
      * @return a list of expenses belonging to the specified category for the person.
      */
     List<Expense> findByCategoryAndPersonId(Category category, Long personId);
+
+    /**
+     * Finds all expenses by the given person ID.
+     *
+     * @param personId the ID of the person whose expenses are to be retrieved.
+     * @return a list of expenses for the specified person.
+     */
+    List<Expense> findByPersonId(Long personId);
 }

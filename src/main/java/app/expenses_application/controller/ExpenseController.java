@@ -62,20 +62,23 @@ public class ExpenseController {
 	@DeleteMapping("/delete/{id}")
 	public ResponseEntity<?> delete(@PathVariable final Long id) throws NoExpensesFoundException {
 		expenseService.deleteById(id);
-		return ResponseEntity.status(HttpStatus.OK).body("Expense deleted successfully.");
+		return ResponseEntity.status(HttpStatus.OK).body("{\"message\": \"Expense deleted successfully.\"}");
 	}
 
 	/**
-	 * Retrieves all expenses.
+	 * Retrieves all expenses for a specific person.
 	 *
-	 * @return a ResponseEntity containing a list of all expenses.
-	 * @throws NoExpensesFoundException if no expenses are found.
+	 * @param personId the ID of the person whose expenses are to be retrieved.
+	 * @return a ResponseEntity containing a list of expenses for the specified person.
+	 * @throws NoExpensesFoundException if no expenses are found for the specified person.
 	 */
-	@Operation(summary = "Get all expenses")
-	@GetMapping("/getAll")
-	public ResponseEntity<?> getAll() throws NoExpensesFoundException {
-		return ResponseEntity.status(HttpStatus.OK).body(expenseService.getAll());
+
+	@Operation(summary = "Get all expenses for a person")
+	@GetMapping("/getAll/{personId}")
+	public ResponseEntity<?> getAll(@PathVariable final Long personId) throws NoExpensesFoundException, NoPersonFoundException {
+		return ResponseEntity.status(HttpStatus.OK).body(expenseService.getAll(personId));
 	}
+
 
 	/**
 	 * Retrieves all expense categories.
@@ -114,7 +117,7 @@ public class ExpenseController {
 	 */
 	@Operation(summary = "Get expenses by category")
 	@GetMapping("/byCategory/{category}/{personId}")
-	public ResponseEntity<?> getExpensesByCategoryAndPersonId(@PathVariable final String category, @PathVariable final Long personId) throws NoExpensesFoundException {
+	public ResponseEntity<?> getExpensesByCategoryAndPersonId(@PathVariable final String category, @PathVariable final Long personId) throws NoExpensesFoundException, NoPersonFoundException {
 		List<Expense> expenses = expenseService.getExpensesByCategoryAndPersonId(category, personId);
 		return ResponseEntity.ok(expenses);
 	}

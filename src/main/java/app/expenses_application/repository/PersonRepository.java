@@ -19,4 +19,12 @@ public interface PersonRepository extends JpaRepository<Person, Long> {
      * @return an Optional containing the person if found, or empty if not found.
      */
     Optional<Person> findByEmail(String email);
+
+    /**
+     * Finds a person by their ID.
+     *
+     * @param id the ID of the person to be retrieved.
+     * @return an Optional containing the person if found, or empty if not found.
+     */
+    Optional<Person> findById(Long id);
 }
