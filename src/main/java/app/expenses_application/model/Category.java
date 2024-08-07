@@ -19,5 +19,6 @@ public enum Category {
 	EDUCATION,
 	MUNICIPAL,
 	GIFTS,
-	LOANS
+	LOANS,
+	HEALTH
 }

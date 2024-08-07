@@ -26,8 +26,8 @@ import java.util.Map;
 
 @RestController
 @Slf4j
-@CrossOrigin(origins = "http://localhost:4200")
-//@CrossOrigin(origins = "http://myngcode.s3-website.eu-central-1.amazonaws.com")
+//@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "http://myngcode.s3-website.eu-central-1.amazonaws.com")
 @RequestMapping("/api/expense")
 @RequiredArgsConstructor
 public class ExpenseController {
