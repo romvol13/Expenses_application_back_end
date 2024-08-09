@@ -19,7 +19,7 @@ visit <a href="https://github.com/romvol13/Expenses_application_front-end">Expen
 </div>
 
 <div>
-    <img src="https://github.com/romvol13/Expenses_application_back_end/blob/master/src/main/images/Screenshot.PNG?raw=true" alt="Expense Tracker Screenshot">
+    <img src="https://github.com/romvol13/Expenses_application_back_end/blob/development/src/main/images/Screenshot.PNG?raw=true" alt="Expense Tracker Screenshot">
 </div>
 
 <h2>Technologies Used</h2>
