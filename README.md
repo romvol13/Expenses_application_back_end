@@ -1,6 +1,7 @@
 <h1>Expense Tracker</h1>
 
-<h4>This is the backend part of the project. For the frontend part, visit <a href="https://github.com/romvol13/Expenses_application_front-end">Expenses Application Frontend</a>.</h4>
+<h4>This is the backend part of the project. For the frontend part,
+visit <a href="https://github.com/romvol13/Expenses_application_front-end">Expenses Application Frontend</a>.</h4>
 
 <h3>Overview</h3>
 
@@ -36,6 +37,10 @@
     <a href="https://www.postgresql.org" target="_blank" rel="noreferrer"> 
         <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original-wordmark.svg" alt="postgresql" width="40" height="40"/> 
     </a> 
+    <a href="https://www.mysql.com" target="_blank" rel="noreferrer">
+        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg" alt="mysql" width="40" height="40"/>
+    </a>
+
 
 </p>
 </div>
@@ -70,6 +75,6 @@
     <ul>
         <li><strong>S3 Bucket:</strong> Used to host the frontend application, providing scalable and reliable storage for static assets.</li>
         <li><strong>EC2 Instance:</strong> Deployed the backend application on an EC2 instance, ensuring high availability and scalability of backend services.</li>
-        <li><strong>RDS:</strong> Utilized RDS to create and manage the PostgreSQL database, ensuring data durability and scalability.</li>
+        <li><strong>RDS:</strong> Utilized RDS to create and manage the MySQL database, ensuring data durability and scalability.</li>
     </ul>
 </div>
