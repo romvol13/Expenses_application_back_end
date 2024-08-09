@@ -7,7 +7,7 @@
 <p>This is a full-stack application designed to help users manage their finances by tracking expenses. The app includes a user-friendly frontend and backend, with all data deployed in a PostgreSQL database. The project is deployed on AWS to ensure scalability and reliability.</p>
 <p>This application is designed to be versatile, offering accessibility across various devices such as phones, PCs, or any other smart devices.</p>
 
-<p>You can try it by following this link: <a href="http://myngcode.s3-website.eu-central-1.amazonaws.com/login">Expense Tracker</a>.</p>
+<p>You can try it by following this link: <a href="http://outcometracker.s3-website.eu-north-1.amazonaws.com/login">Expense Tracker</a>.</p>
 
 <div>
     <p style="color: green">You can use these credentials:</p>
