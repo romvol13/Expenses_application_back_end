@@ -128,10 +128,10 @@ public class ExpenseService {
 	 * @throws NoExpensesFoundException if no expenses are found for the given category and person.
 	 */
 	public List<Expense> getExpensesByCategoryAndPersonId(final String category, final Long personId) throws NoExpensesFoundException, NoPersonFoundException {
-		List<Expense> expenses = expenseRepository.findByCategory(Category.valueOf(category));
 		checkIfPersonIdExists(personId);
+		List<Expense> expenses = expenseRepository.findByCategoryAndPersonId(Category.valueOf(category), personId);
 		checkIfExpensesExists(expenses.isEmpty(), "No expenses found.");
-		return expenseRepository.findByCategoryAndPersonId(Category.valueOf(category), personId);
+		return expenses;
 	}
 
 	/**

@@ -27,6 +27,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 
 import java.time.LocalDate;
 import java.util.Collections;
+import java.util.List;
 import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
@@ -275,5 +276,53 @@ class ExpensesApplicationTests {
 		// Then
 		assertEquals(jwtToken, response.getToken());
 		assertEquals(person, response.getPerson());
+	}
+
+	@Test
+	void testGetAllThrowsNoPersonFoundExceptionWhenPersonDoesNotExist() {
+		// Given
+		Long personId = 1L;
+		Mockito.when(personRepository.findById(personId)).thenReturn(Optional.empty());
+
+		// When/Then
+		assertThrows(NoPersonFoundException.class, () -> expenseService.getAll(personId));
+	}
+
+	@Test
+	void testGetAllThrowsNoExpensesFoundExceptionWhenNoExpensesExist() {
+		// Given
+		Long personId = 1L;
+		Mockito.when(personRepository.findById(personId)).thenReturn(Optional.of(new Person()));
+		Mockito.when(expenseRepository.findByPersonId(personId)).thenReturn(Collections.emptyList());
+
+		// When/Then
+		assertThrows(NoExpensesFoundException.class, () -> expenseService.getAll(personId));
+	}
+
+	@Test
+	void testGetAllReturnsExpensesSuccessfully() throws NoExpensesFoundException, NoPersonFoundException {
+		// Given
+		Long personId = 1L;
+		Person person = new Person();
+		Expense expense1 = new Expense();
+		Expense expense2 = new Expense();
+		Expense expense3 = new Expense();
+		Expense expense4 = new Expense();
+		Expense expense5 = new Expense();
+		Expense expense6 = new Expense();
+		Expense expense7 = new Expense();
+		Expense expense8 = new Expense();
+		List<Expense> expenses = List.of(expense1, expense2, expense3, expense4, expense5, expense6, expense7, expense8);
+
+		Mockito.when(personRepository.findById(personId)).thenReturn(Optional.of(person));
+		Mockito.when(expenseRepository.findByPersonId(personId)).thenReturn(expenses);
+
+		// When
+		List<Expense> result = expenseService.getAll(personId);
+
+		// Then
+		assertNotNull(result);
+		assertEquals(8, result.size());
+		assertEquals(expenses, result);
 	}
 }
